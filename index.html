@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ארלוזורוב L.T.I</title>
+<meta name="description" content="ארלוזורוב L.T.I: השקעות בנדל״ן מניב למגורים, קבוצות רכישה ויזמות, ניהול נכסים ותיווך. מאז 2003.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: lilac paper, petrol ink, one deep-green band; the logo's tile globe is the only loud thing. */
+  --paper:#ECE8F6;
+  --paper-light:#F8F6FD;
+  --ink:#0B3D58;
+  --ink-soft:#3C5A6C;
+  --green:#1D6B48;
+  --green-deep:#124A33;
+  --lime:#BCD740;
+  --sky:#4A90CF;
+  --aqua:#8ED3E1;
+  --navy:#0A4C6B;
+  --rule:rgba(11,61,88,.18);
+  --display:"Assistant","Segoe UI","Arial Hebrew",Arial,sans-serif;
+  --body:"Assistant","Segoe UI","Arial Hebrew",Arial,sans-serif;
+  --wrap:72rem;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:106.25%;scroll-behavior:smooth;scroll-padding-top:5.5rem}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.skip{position:absolute;inset-inline-start:1rem;top:-4rem;background:var(--ink);color:#fff;padding:.6rem 1rem;border-radius:.5rem;z-index:50}
+.skip:focus{top:1rem}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(248,246,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:1.5rem;min-height:4.6rem}
+.brand img{height:3.5rem;width:auto}
+.nav{display:flex;gap:1.6rem;margin-inline-start:auto;font-weight:500}
+.nav a{text-decoration:none;padding-block:.4rem;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--lime)}
+.call{background:var(--green);color:#fff;text-decoration:none;font-weight:600;padding:.6rem 1.15rem;border-radius:999px;white-space:nowrap}
+.call:hover{background:var(--green-deep)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:clamp(1rem,4vw,3.5rem);padding-block:clamp(2.5rem,6vw,5rem)}
+.hero h1{font-weight:800;font-size:clamp(2.7rem,6.6vw,5.4rem);letter-spacing:-.01em}
+.hero .lead{font-size:1.2rem;max-width:34rem;margin-top:1.5rem;color:var(--ink-soft)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem;align-items:center}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:.85rem 1.5rem;border-radius:999px;border:2px solid var(--green)}
+.btn-fill{background:var(--green);color:#fff}
+.btn-fill:hover{background:var(--green-deep);border-color:var(--green-deep)}
+.btn-line{color:var(--green-deep)}
+.btn-line:hover{background:#fff}
+.globe{position:relative;aspect-ratio:1;width:100%;max-width:33rem;margin-inline:auto}
+.globe canvas{width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab}
+.globe canvas:active{cursor:grabbing}
+
+/* services */
+.does{background:var(--paper-light);padding-block:clamp(3rem,7vw,5.5rem)}
+.sec-title{font-weight:700;font-size:clamp(2rem,4vw,3rem)}
+.rows{margin-top:2.5rem;border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:1.6rem minmax(0,20rem) minmax(0,1fr);gap:1.25rem 1.5rem;align-items:baseline;padding-block:1.6rem;border-bottom:1px solid var(--rule)}
+.row h3{font-size:1.65rem;font-weight:700}
+.row p{max-width:38rem;color:var(--ink-soft)}
+.tile{width:1.15rem;height:1.15rem;border-radius:.3rem;transform:translateY(.1rem) rotate(-8deg)}
+.t-aqua{background:var(--aqua)}.t-sky{background:var(--sky)}.t-navy{background:var(--navy)}.t-lime{background:var(--lime)}
+
+/* path */
+.path{background:var(--green-deep);color:#fff;padding-block:clamp(3rem,7vw,5.5rem)}
+.path .intro{max-width:36rem;margin-top:1rem;color:#D5E6DC}
+.years{list-style:none;margin:3rem 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2rem;position:relative}
+.years::before{content:"";position:absolute;inset-inline:0;top:.5rem;height:2px;background:rgba(255,255,255,.22)}
+.years li{position:relative;padding-top:2.2rem}
+.years li::before{content:"";position:absolute;top:0;inset-inline-start:0;width:1.1rem;height:1.1rem;border-radius:.3rem;background:var(--lime);transform:rotate(-8deg)}
+.years li:nth-child(2)::before{background:var(--aqua)}
+.years li:nth-child(3)::before{background:var(--sky)}
+.years li:nth-child(4)::before{background:#fff}
+.yr{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,4.4vw,3.6rem);line-height:1;color:var(--lime)}
+.years h3{font-family:var(--body);font-weight:600;font-size:1.1rem;margin-top:.7rem;line-height:1.35}
+.years p{margin-top:.5rem;color:#D5E6DC;font-size:.97rem}
+
+/* start */
+.start{padding-block:clamp(3rem,7vw,5.5rem)}
+.steps{list-style:none;counter-reset:s;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+.steps li{counter-increment:s;background:var(--paper-light);border-radius:1.4rem 1.4rem 1.4rem .3rem;padding:1.6rem 1.5rem 1.8rem}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--green)}
+.steps h3{font-size:1.45rem;margin-top:.6rem}
+.steps p{margin-top:.5rem;color:var(--ink-soft)}
+
+/* contact */
+.contact{background:var(--paper-light);padding-block:clamp(3rem,8vw,6rem);border-top:1px solid var(--rule)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:2rem 3rem;align-items:start}
+.contact .say{color:var(--ink-soft);margin-top:1rem;max-width:26rem}
+.lines{display:grid;gap:1.4rem}
+.lines dt{font-size:.92rem;color:var(--ink-soft)}
+.lines dd{margin:0}
+.big{font-family:var(--display);font-weight:800;font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.05;text-decoration:none;color:var(--green-deep)}
+.big:hover{color:var(--green)}
+.mid{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,3vw,2rem);text-decoration:none;overflow-wrap:anywhere}
+.mid:hover{color:var(--green)}
+.copy{font:inherit;font-size:.9rem;font-weight:500;background:none;border:1px solid var(--rule);color:var(--ink);border-radius:999px;padding:.3rem .9rem;cursor:pointer;margin-inline-start:.8rem;vertical-align:middle}
+.copy:hover{background:#fff}
+
+/* footer */
+.foot{background:var(--ink);color:#DCE6EC;padding-block:2.5rem;font-size:.93rem}
+.foot .wrap{display:grid;gap:1.4rem}
+.foot nav{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.foot a{color:#fff}
+.foot .small{color:#AFC3CF;max-width:52rem}
+
+/* legal documents */
+.doc{padding-block:clamp(2.5rem,6vw,4.5rem)}
+.doc .wrap{max-width:46rem}
+.doc h1{font-size:clamp(2.1rem,5vw,3.2rem);font-weight:800}
+.doc .date{color:var(--ink-soft);margin-top:.6rem}
+.doc h2{font-size:1.45rem;font-weight:700;margin-top:2.2rem}
+.doc p,.doc ul{margin-top:.8rem}
+.doc ul{padding-inline-start:1.3rem}
+.doc li{margin-top:.35rem}
+.back{display:inline-block;margin-bottom:1.6rem;font-weight:500}
+[hidden]{display:none !important}
+
+/* accessibility menu */
+.a11y{position:fixed;inset-block-end:1rem;inset-inline-end:1rem;z-index:40}
+.a11y-btn{width:3.1rem;height:3.1rem;border-radius:50%;border:2px solid #fff;background:var(--navy);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 14px rgba(11,61,88,.3)}
+.a11y-btn svg{width:1.7rem;height:1.7rem}
+.a11y-panel{position:absolute;inset-block-end:3.8rem;inset-inline-end:0;width:15rem;background:#fff;border:1px solid var(--rule);border-radius:1rem;padding:1rem;display:grid;gap:.5rem;box-shadow:0 10px 30px rgba(11,61,88,.22)}
+.a11y-panel h2{font-family:var(--body);font-size:1rem;font-weight:600;margin-bottom:.2rem}
+.a11y-panel button{font:inherit;text-align:start;background:var(--paper-light);border:1px solid var(--rule);color:var(--ink);border-radius:.6rem;padding:.55rem .8rem;cursor:pointer}
+.a11y-panel button[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.a11y-panel a{font-size:.92rem;margin-top:.2rem}
+
+html.a11y-big{font-size:125%}
+html.a11y-links a{text-decoration:underline !important;text-decoration-thickness:2px !important}
+html.a11y-contrast{--paper:#fff;--paper-light:#fff;--ink:#000;--ink-soft:#000;--green:#0B3D26;--green-deep:#062415;--rule:#000}
+html.a11y-contrast .path .intro,html.a11y-contrast .years p{color:#fff}
+html.a11y-still{scroll-behavior:auto}
+
+@media (max-width:60rem){
+  .nav{display:none}
+  .call{margin-inline-start:auto}
+  .hero .wrap{grid-template-columns:1fr}
+  .globe{max-width:22rem;order:-1}
+  .row{grid-template-columns:1.6rem minmax(0,1fr)}
+  .row p{grid-column:2}
+  .years{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .years::before{display:none}
+  .steps{grid-template-columns:1fr}
+  .contact .wrap{grid-template-columns:1fr;align-items:start}
+}
+@media (max-width:30rem){
+  .years{grid-template-columns:1fr}
+  .brand img{height:2.9rem}
+  .copy{margin:.6rem 0 0;display:block}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">דלגו לתוכן</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="ארלוזורוב L.T.I, לעמוד הראשי"><img src="logo.png" alt="ארלוזורוב L.T.I, Long Term Investments" width="640" height="395"></a>
+    <nav class="nav" aria-label="ניווט ראשי">
+      <a href="#does">מה אנחנו עושים</a>
+      <a href="#path">הדרך שלנו</a>
+      <a href="#start">איך מתחילים</a>
+      <a href="#contact">יצירת קשר</a>
+    </nav>
+    <a class="call" href="tel:+972507890222"><span class="ltr">050-7890222</span></a>
+  </div>
+</header>
+
+<main id="main">
+<div id="home">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <h1>שקט נפשי בהשקעות נדל״ן</h1>
+        <p class="lead">ארלוזורוב L.T.I משקיעה בנדל״ן מניב למגורים ומלווה משקיעים מאז 2003. קרנות השקעה בארה״ב, קבוצות רכישה ויזמות בדרום, ניהול נכסים ותיווך.</p>
+        <div class="acts">
+          <a class="btn btn-fill" href="tel:+972507890222">חייגו <span class="ltr">050-7890222</span></a>
+          <a class="btn btn-line" href="mailto:office@arlz-group.com">כתבו לנו מייל</a>
+        </div>
+      </div>
+      <div class="globe"><canvas id="globe" aria-hidden="true"></canvas></div>
+    </div>
+  </section>
+
+  <section class="does" id="does">
+    <div class="wrap">
+      <h2 class="sec-title">מה אנחנו עושים</h2>
+      <div class="rows">
+        <div class="row"><span class="tile t-navy" aria-hidden="true"></span><h3>השקעה בנדל״ן מניב</h3><p>קרנות השקעה בנדל״ן מניב למגורים בארה״ב. אנחנו רוכשים, מנהלים ומוכרים את הנכסים עבור המשקיעים.</p></div>
+        <div class="row"><span class="tile t-lime" aria-hidden="true"></span><h3>קבוצות רכישה ויזמות</h3><p>ארגון קבוצות רכישה ועמותות בנייה בדרום, למשל פרויקט 62 יחידות הדיור בשכונת אגמים באשקלון.</p></div>
+        <div class="row"><span class="tile t-sky" aria-hidden="true"></span><h3>ניהול נכסים</h3><p>ניהול שוטף של נכסים מניבים: שוכרים, גבייה ותחזוקה.</p></div>
+        <div class="row"><span class="tile t-aqua" aria-hidden="true"></span><h3>תיווך וליווי משקיעים</h3><p>ליווי אישי בבחירת השקעה, מהשיחה הראשונה ועד החתימה, ותיווך בעסקאות נדל״ן.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="path" id="path">
+    <div class="wrap">
+      <h2 class="sec-title">הדרך שלנו</h2>
+      <p class="intro">הכוח של נדל״ן קבוצתי הוא פשוט: קבוצה מקבלת את מה שאדם בודד לא יכול לקבל לבד, במגורים ובהשקעה.</p>
+      <ol class="years">
+        <li><div class="yr">2003</div><h3>דירות סטודנטים בבאר שבע</h3><p>הצעדים הראשונים בנדל״ן מניב למגורים. מאז ליווינו מאות רוכשים ושוכרים בעיר.</p></li>
+        <li><div class="yr">2011</div><h3>יזמות דרך עמותות בנייה</h3><p>פרויקט ראשון של 8 קוטג׳ים בשכונה ו׳ בבאר שבע. באותו מודל קמו עשרות יחידות דיור בבאר שבע, בדימונה ובכרמית.</p></li>
+        <li><div class="yr">2019</div><h3>קרנות השקעה בארה״ב</h3><p>מחברים את כוח הקבוצה לנדל״ן מניב למגורים בשוק האמריקאי, יחד עם חברת <span class="ltr">Barrus Realty</span>.</p></li>
+        <li><div class="yr">היום</div><h3>יותר מ‑250 יחידות דיור</h3><p>בישראל ובארה״ב, בשווי נכסים של כ‑50 מיליון דולר. וגם הפודקאסט ״בעלי שליטה״, בשיתוף אוניברסיטת בן‑גוריון.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="start" id="start">
+    <div class="wrap">
+      <h2 class="sec-title">איך מתחילים</h2>
+      <ol class="steps">
+        <li><h3>שיחת היכרות</h3><p>שיחת טלפון קצרה, כדי להכיר ולהבין מה אתם מחפשים.</p></li>
+        <li><h3>פגישה אישית</h3><p>פגישה ארוכה יותר, שבה עוברים על הצרכים ועל השאלות שלכם.</p></li>
+        <li><h3>התאמת השקעה</h3><p>אנחנו מציעים השקעה שמתאימה לצרכים, לסכום ולטווח הזמן שלכם.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2 class="sec-title">דברו איתנו</h2>
+        <p class="say">הדרך הקצרה ביותר היא טלפון. אפשר גם במייל, ונחזור אליכם.</p>
+      </div>
+      <dl class="lines">
+        <div><dt>טלפון</dt><dd><a class="big ltr" href="tel:+972507890222">050-7890222</a><button class="copy" type="button" data-copy="0507890222">העתקת המספר</button></dd></div>
+        <div><dt>דוא״ל</dt><dd><a class="mid ltr" href="mailto:office@arlz-group.com">office@arlz-group.com</a></dd></div>
+        <div><dt>כתובת</dt><dd><span class="mid">מיתר</span></dd></div>
+      </dl>
+    </div>
+  </section>
+</div>
+
+<article class="doc" id="privacy" data-doc>
+  <div class="wrap">
+    <a class="back" href="#top">חזרה לעמוד הראשי</a>
+    <h1 tabindex="-1">מדיניות פרטיות</h1>
+    <p class="date">עודכן לאחרונה: נובמבר 2026</p>
+
+    <h2>1. כללי</h2>
+    <p>מסמך זה מפרט את מדיניות הפרטיות באתר arlz-group.com (להלן: ״האתר״), המופעל על ידי ארלוזורוב נכסים ויזמות בע״מ (להלן: ״החברה״). החברה היא בעלת השליטה במידע שנמסר לה. השימוש בלשון זכר נעשה מטעמי נוחות בלבד, והמדיניות חלה על כלל המגדרים.</p>
+    <p>המדיניות חלה על השימוש באתר ועל מידע שנמסר לחברה בטלפון, בדוא״ל או בכל אמצעי אחר הקשור לפעילותה.</p>
+
+    <h2>2. המידע שנאסף</h2>
+    <p>האתר הוא אתר תדמית. אין בו טפסים, הרשמה, אזור אישי או רכישה, והוא אינו משתמש בעוגיות (Cookies) לצורכי מעקב או פרסום.</p>
+    <ul>
+      <li>מידע שמסרתם ביוזמתכם: כאשר אתם פונים אלינו בטלפון או בדוא״ל, נשמרים אצלנו הפרטים שמסרתם, כגון שם, מספר טלפון, כתובת דוא״ל ותוכן הפנייה. אין חובה חוקית למסור מידע זה, ומסירתו תלויה ברצונכם ובהסכמתכם.</li>
+      <li>נתונים טכניים: ספק האחסון של האתר רושם באופן אוטומטי נתוני גלישה בסיסיים, כגון כתובת IP, סוג דפדפן ומועד הגישה, לצורכי אבטחה ותפעול.</li>
+      <li>גופנים: האתר טוען גופנים משירות Google Fonts. לשם כך הדפדפן שלכם פונה לשרתי Google, המקבלים את כתובת ה‑IP שלכם.</li>
+      <li>העדפות נגישות: אם שיניתם הגדרות בתפריט הנגישות, הן נשמרות בדפדפן שלכם בלבד ואינן מועברות אלינו.</li>
+    </ul>
+
+    <h2>3. מטרות השימוש במידע</h2>
+    <ul>
+      <li>יצירת קשר ומענה לפניות.</li>
+      <li>מתן השירותים שביקשתם וניהול הקשר עמכם.</li>
+      <li>משלוח עדכונים ותוכן שיווקי, רק אם נתתם לכך הסכמה מפורשת, ובכפוף לזכותכם לבקש הסרה בכל עת.</li>
+      <li>עמידה בדרישות הדין והתגוננות מפני תביעות.</li>
+    </ul>
+
+    <h2>4. מסירת מידע לצד שלישי</h2>
+    <p>החברה אינה מוכרת, משכירה או מעבירה פרטים אישיים לצדדים שלישיים למטרות מסחריות שאינן קשורות לשירות. מידע יועבר רק במקרים הבאים:</p>
+    <ul>
+      <li>לשותפים עסקיים ולנותני שירות הנדרשים לצורך מתן השירות שביקשתם, כגון יועצים חיצוניים.</li>
+      <li>על פי דרישה חוקית או צו שיפוטי, או לצורך הגנה מפני תביעה משפטית.</li>
+      <li>במקרה של מיזוג פעילות החברה עם גוף אחר, ובלבד שהגוף הרוכש יקבל על עצמו את הוראות מדיניות זו.</li>
+    </ul>
+
+    <h2>5. אבטחת מידע</h2>
+    <p>החברה נוקטת אמצעי אבטחה מקובלים וסבירים לשמירה על המידע. עם זאת, אין אפשרות להבטיח חסינות מוחלטת מפני חדירה או חשיפה בלתי מורשית, והחברה לא תישא באחריות לנזק שנגרם עקב חדירה כזו, ככל שננקטו על ידה אמצעי אבטחה סבירים.</p>
+
+    <h2>6. עיון, תיקון ומחיקה</h2>
+    <p>בהתאם לחוק הגנת הפרטיות, התשמ״א‑1981, כל אדם זכאי לעיין במידע המוחזק עליו, ולבקש לתקנו או למחוק אותו אם אינו נכון, שלם או מעודכן. כמו כן ניתן לבקש בכל עת הסרה מרשימת תפוצה.</p>
+    <p>פניות בנושא יש לשלוח לכתובת <a class="ltr" href="mailto:office@arlz-group.com">office@arlz-group.com</a> או בטלפון <a class="ltr" href="tel:+972507890222">050-7890222</a>.</p>
+
+    <h2>7. שינויים במדיניות</h2>
+    <p>החברה רשאית לעדכן מדיניות זו מעת לעת. הנוסח המחייב הוא הנוסח המפורסם באתר.</p>
+  </div>
+</article>
+
+<article class="doc" id="terms" data-doc>
+  <div class="wrap">
+    <a class="back" href="#top">חזרה לעמוד הראשי</a>
+    <h1 tabindex="-1">תקנון ותנאי שימוש</h1>
+    <p class="date">עודכן לאחרונה: נובמבר 2026</p>
+
+    <h2>1. כללי</h2>
+    <p>ברוכים הבאים לאתר arlz-group.com (להלן: ״האתר״), המופעל על ידי ארלוזורוב נכסים ויזמות בע״מ (להלן: ״החברה״). השימוש באתר כפוף לתנאים שלהלן. השימוש בלשון זכר נעשה מטעמי נוחות בלבד.</p>
+
+    <h2>2. מהות האתר</h2>
+    <p>האתר הוא אתר תדמית, המציג מידע כללי על החברה ועל תחומי פעילותה: השקעות נדל״ן, קבוצות רכישה ויזמות, ניהול נכסים ותיווך, ומאפשר ליצור עמה קשר. לא ניתן לבצע באתר רכישות או הרשמה.</p>
+
+    <h2>3. המידע באתר אינו ייעוץ</h2>
+    <p>התכנים באתר נועדו למידע כללי בלבד. אין לראות בהם ייעוץ השקעות, ייעוץ משפטי, ייעוץ מס או ייעוץ פיננסי מותאם אישית, ואין בהם הצעה או הזמנה להשקיע. נתונים על פעילות העבר של החברה אינם מבטיחים תוצאות בעתיד. כל פעולה המבוצעת על בסיס המידע באתר היא על אחריות המשתמש בלבד, והחברה לא תישא באחריות לנזק ישיר או עקיף הנובע משימוש במידע זה.</p>
+
+    <h2>4. קניין רוחני</h2>
+    <p>כל הזכויות בתכנים המופיעים באתר, לרבות טקסטים, עיצוב, גרפיקה, קוד ולוגואים, שייכות לחברה. אין להעתיק, לשכפל, להפיץ או לעשות שימוש מסחרי בתכנים ללא אישור מראש ובכתב מהחברה.</p>
+
+    <h2>5. קישורים לאתרים אחרים</h2>
+    <p>האתר כולל קישורים לעמודי החברה ברשתות חברתיות. על השימוש באתרים אלה חלים התנאים ומדיניות הפרטיות של מפעיליהם, והחברה אינה אחראית לתוכנם.</p>
+
+    <h2>6. פרטיות ונגישות</h2>
+    <p>השימוש במידע אישי מפורט ב<a href="#privacy">מדיניות הפרטיות</a>. פרטים על נגישות האתר מופיעים ב<a href="#accessibility">הצהרת הנגישות</a>.</p>
+
+    <h2>7. שינויים וסמכות שיפוט</h2>
+    <p>החברה רשאית לעדכן תנאים אלה מעת לעת. על התקנון יחולו דיני מדינת ישראל, וסמכות השיפוט הבלעדית בכל מחלוקת נתונה לבתי המשפט המוסמכים בבאר שבע.</p>
+  </div>
+</article>
+
+<article class="doc" id="accessibility" data-doc>
+  <div class="wrap">
+    <a class="back" href="#top">חזרה לעמוד הראשי</a>
+    <h1 tabindex="-1">הצהרת נגישות</h1>
+    <p class="date">עודכן לאחרונה: נובמבר 2026</p>
+
+    <p>ארלוזורוב נכסים ויזמות בע״מ רואה חשיבות במתן שירות שוויוני לכלל הציבור, ופועלת כדי שהאתר יהיה נגיש גם לאנשים עם מוגבלות.</p>
+
+    <h2>נגישות האתר</h2>
+    <p>האתר נבנה לפי תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע״ג‑2013, ולפי תקן ישראלי 5568, המבוסס על הנחיות WCAG ברמה AA. בין ההתאמות:</p>
+    <ul>
+      <li>ניווט מלא באמצעות מקלדת, וקישור דילוג לתוכן הראשי.</li>
+      <li>מבנה כותרות ואזורים סמנטי, המתאים לקוראי מסך.</li>
+      <li>ניגודיות צבעים מספקת וטקסט חלופי לתמונות.</li>
+      <li>התאמה לגלישה בטלפון נייד ולהגדלת תצוגה.</li>
+      <li>תפריט נגישות: הגדלת טקסט, ניגודיות גבוהה, הדגשת קישורים ועצירת אנימציה.</li>
+      <li>האנימציה בעמוד הראשי נעצרת אוטומטית אצל מי שהגדיר במכשירו העדפה להפחתת תנועה.</li>
+    </ul>
+
+    <h2>סייגים</h2>
+    <p>למרות מאמצינו, ייתכן שיימצאו באתר חלקים שטרם הונגשו במלואם. קישורים לרשתות חברתיות מובילים לאתרים חיצוניים, שנגישותם אינה בשליטתנו.</p>
+
+    <h2>הסדרי נגישות בקבלת שירות</h2>
+    <p>השירות ניתן בטלפון, בדוא״ל ובפגישות בתיאום מראש. בעת תיאום פגישה נשמח להתאים מקום מפגש נגיש לפי הצורך.</p>
+
+    <h2>פנייה לרכז הנגישות</h2>
+    <p>נתקלתם בבעיית נגישות, או שיש לכם הצעה לשיפור? פנו אל רכז הנגישות, דוד לוי:</p>
+    <ul>
+      <li>טלפון: <a class="ltr" href="tel:+972507890222">050-7890222</a></li>
+      <li>דוא״ל: <a class="ltr" href="mailto:office@arlz-group.com">office@arlz-group.com</a></li>
+    </ul>
+  </div>
+</article>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>ארלוזורוב נכסים ויזמות בע״מ, מיתר. <span class="ltr">050-7890222</span>, <span class="ltr">office@arlz-group.com</span></div>
+    <nav aria-label="קישורי תחתית">
+      <a href="#privacy">מדיניות פרטיות</a>
+      <a href="#terms">תקנון</a>
+      <a href="#accessibility">הצהרת נגישות</a>
+      <a href="https://www.facebook.com/arlz.group" rel="noopener">פייסבוק</a>
+      <a href="https://www.linkedin.com/company/arlozorov-group" rel="noopener">לינקדאין</a>
+    </nav>
+    <p class="small">המידע באתר כללי בלבד ואינו מהווה ייעוץ השקעות, ייעוץ משפטי או ייעוץ מס, ואינו הצעה או הזמנה להשקיע. © 2026 ארלוזורוב נכסים ויזמות בע״מ.</p>
+  </div>
+</footer>
+
+<div class="a11y">
+  <button class="a11y-btn" id="a11yBtn" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4.2" r="2.1"/><path d="M4 8.2c0-.6.5-1 1.1-.9 2.3.5 4.6.8 6.9.8s4.6-.3 6.9-.8c.6-.1 1.1.3 1.1.9 0 .5-.3.9-.8 1-1.7.4-3.4.7-5.2.9v3.2l2.3 6.6c.2.6-.1 1.2-.7 1.4-.6.2-1.2-.1-1.4-.7L12 15.3l-2.2 5.3c-.2.6-.8.9-1.4.7-.6-.2-.9-.8-.7-1.4L10 13.3v-3.2c-1.8-.2-3.5-.5-5.2-.9-.5-.1-.8-.5-.8-1z"/></svg>
+  </button>
+  <div class="a11y-panel" id="a11yPanel" hidden>
+    <h2>נגישות</h2>
+    <button type="button" data-a11y="big" aria-pressed="false">הגדלת טקסט</button>
+    <button type="button" data-a11y="contrast" aria-pressed="false">ניגודיות גבוהה</button>
+    <button type="button" data-a11y="links" aria-pressed="false">הדגשת קישורים</button>
+    <button type="button" data-a11y="still" aria-pressed="false">עצירת אנימציה</button>
+    <button type="button" id="a11yReset">איפוס</button>
+    <a href="#accessibility">הצהרת נגישות</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement;
+
+  /* ---------- views: home and the three legal documents ---------- */
+  var docs=[].slice.call(document.querySelectorAll('[data-doc]'));
+  var home=document.getElementById('home');
+  function route(){
+    var h=location.hash.slice(1), isDoc=false;
+    docs.forEach(function(d){var on=d.id===h; d.hidden=!on; if(on){isDoc=true;}});
+    home.hidden=isDoc;
+    if(isDoc){
+      window.scrollTo(0,0);
+      var t=document.querySelector('#'+h+' h1'); if(t){t.focus({preventScroll:true});}
+    }else if(h){
+      var el=document.getElementById(h); if(el){el.scrollIntoView();}
+    }
+  }
+  window.addEventListener('hashchange',route); route();
+
+  /* ---------- copy phone number ---------- */
+  [].forEach.call(document.querySelectorAll('[data-copy]'),function(b){
+    var label=b.textContent;
+    b.addEventListener('click',function(){
+      var done=function(ok){b.textContent=ok?'המספר הועתק':'לא ניתן להעתיק'; setTimeout(function(){b.textContent=label;},2200);};
+      try{navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function(){done(true);},function(){done(false);});}catch(e){done(false);}
+    });
+  });
+
+  /* ---------- accessibility menu ---------- */
+  var KEY='arlz-a11y', state={};
+  try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state={};}
+  var btn=document.getElementById('a11yBtn'), panel=document.getElementById('a11yPanel');
+  var toggles=[].slice.call(panel.querySelectorAll('[data-a11y]'));
+  function apply(){
+    toggles.forEach(function(t){var k=t.getAttribute('data-a11y'); root.classList.toggle('a11y-'+k,!!state[k]); t.setAttribute('aria-pressed',state[k]?'true':'false');});
+    try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+    if(window.arlzGlobe){window.arlzGlobe.refresh();}
+  }
+  function openPanel(o){panel.hidden=!o; btn.setAttribute('aria-expanded',o?'true':'false');}
+  btn.addEventListener('click',function(){openPanel(panel.hidden);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){openPanel(false);btn.focus();}});
+  toggles.forEach(function(t){t.addEventListener('click',function(){var k=t.getAttribute('data-a11y'); state[k]=!state[k]; apply();});});
+  document.getElementById('a11yReset').addEventListener('click',function(){state={};apply();});
+  panel.querySelector('a').addEventListener('click',function(){openPanel(false);});
+
+  /* ---------- the tile globe from the logo ---------- */
+  var cv=document.getElementById('globe'), ctx=cv.getContext('2d');
+  var COLORS=['#8ED3E1','#4A90CF','#0A4C6B','#BCD740'];
+  var seed=7; function rnd(){seed=(seed*16807)%2147483647; return seed/2147483647;}
+  var ROWS=13, COLS=24, tiles=[], D=Math.PI/180;
+  for(var r=0;r<ROWS;r++){
+    var la0=(-78+r*12)*D, la1=la0+12*D, g=0.9*D;
+    for(var c=0;c<COLS;c++){
+      var lo0=c*15*D, lo1=lo0+15*D, gl=g/Math.max(.25,Math.cos((la0+la1)/2));
+      var band=Math.floor(((c+r*.45+rnd()*1.1)%COLS)/COLS*4)%4;
+      if(rnd()<.1){band=(band+(rnd()<.5?1:3))%4;}
+      tiles.push({q:[[la0+g,lo0+gl],[la0+g,lo1-gl],[la1-g,lo1-gl],[la1-g,lo0+gl]],mid:[(la0+la1)/2,(lo0+lo1)/2],col:COLORS[band],
+        delay:rnd()*.9,sx:(rnd()-.5)*2.4,sy:(rnd()-.5)*2.4});
+    }
+  }
+  var W=0,H=0,R=0,cx=0,cy=0,rot=.6,vel=.14,tilt=-.36,tiltTo=-.36,px=-9999,py=-9999,start=0,last=0,raf=0,drag=null,visible=true;
+  var mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function still(){return mq.matches||root.classList.contains('a11y-still');}
+  function size(){
+    var b=cv.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2);
+    W=b.width;H=b.height; cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0); R=Math.min(W,H)*.43; cx=W/2; cy=H/2;
+  }
+  function proj(la,lo,cr,sr,ct,st){
+    var x=Math.cos(la)*Math.sin(lo), y=Math.sin(la), z=Math.cos(la)*Math.cos(lo);
+    var x1=x*cr+z*sr, z1=-x*sr+z*cr;
+    var y2=y*ct-z1*st, z2=y*st+z1*ct;
+    var x3=x1*.97-y2*.24, y3=x1*.24+y2*.97;
+    return [x3,y3,z2];
+  }
+  function quad(p,alpha,col){
+    var k=.3;
+    ctx.globalAlpha=alpha; ctx.fillStyle=col; ctx.beginPath();
+    for(var j=0;j<4;j++){
+      var P=p[(j+3)%4],A=p[j],B=p[(j+1)%4];
+      var ix=A[0]+(P[0]-A[0])*k, iy=A[1]+(P[1]-A[1])*k, ox=A[0]+(B[0]-A[0])*k, oy=A[1]+(B[1]-A[1])*k;
+      if(j===0){ctx.moveTo(ix,iy);}else{ctx.lineTo(ix,iy);}
+      ctx.quadraticCurveTo(A[0],A[1],ox,oy);
+    }
+    ctx.closePath(); ctx.fill();
+  }
+  function ease(t){t=t<0?0:t>1?1:t; return 1-Math.pow(1-t,3);}
+  function draw(time,intro){
+    ctx.clearRect(0,0,W,H);
+    var cr=Math.cos(rot),sr=Math.sin(rot),ct=Math.cos(tilt),st=Math.sin(tilt);
+    for(var pass=0;pass<2;pass++){
+      for(var i=0;i<tiles.length;i++){
+        var t=tiles[i], m=proj(t.mid[0],t.mid[1],cr,sr,ct,st), front=m[2]>0;
+        if(pass===0||!front||m[2]<.05){continue;}
+        var p=intro?ease((time-t.delay)/.95):1; if(p<=0){continue;}
+        var mx=cx+m[0]*R, my=cy-m[1]*R, push=1, grow=1;
+        if(front){var d=Math.hypot(mx-px,my-py), f=Math.max(0,1-d/(R*.5)); f=f*f; push=1+.09*f; grow=1+.12*f;}
+        var ox=(1-p)*t.sx*R, oy=(1-p)*t.sy*R, sc=(.35+.65*p)*grow, pts=[];
+        var bx=cx+(mx-cx)*push, by=cy+(my-cy)*push;
+        for(var k=0;k<4;k++){
+          var q=proj(t.q[k][0],t.q[k][1],cr,sr,ct,st), X=cx+q[0]*R, Y=cy-q[1]*R;
+          pts.push([bx+(X-mx)*sc+ox, by+(Y-my)*sc+oy]);
+        }
+        quad(pts,(.6+.4*Math.min(1,m[2]*2.5))*p,t.col);
+      }
+    }
+    ctx.globalAlpha=1;
+  }
+  function frame(now){
+    raf=0;
+    if(!start){start=now;last=now;}
+    var dt=Math.min(.05,(now-last)/1000); last=now;
+    var time=(now-start)/1000;
+    if(!drag){rot+=vel*dt; vel+=(.14-vel)*dt*1.2;}
+    tilt+=(tiltTo-tilt)*Math.min(1,dt*4);
+    draw(time,time<2);
+    if(visible&&!still()){raf=requestAnimationFrame(frame);}
+  }
+  function refresh(){
+    size();
+    if(still()){if(raf){cancelAnimationFrame(raf);raf=0;} px=py=-9999; tilt=tiltTo=-.36; draw(0,false);}
+    else if(!raf&&visible){last=performance.now(); if(!start){start=0;} raf=requestAnimationFrame(frame);}
+  }
+  cv.addEventListener('pointermove',function(e){
+    var b=cv.getBoundingClientRect(); px=e.clientX-b.left; py=e.clientY-b.top;
+    tiltTo=-.36+((py-cy)/R)*.16;
+    if(drag){var dx=e.clientX-drag.x; drag.x=e.clientX; rot+=dx/R; vel=Math.max(-2.5,Math.min(2.5,dx/R*40));}
+  });
+  cv.addEventListener('pointerdown',function(e){drag={x:e.clientX}; try{cv.setPointerCapture(e.pointerId);}catch(x){}});
+  function release(){drag=null;}
+  cv.addEventListener('pointerup',release); cv.addEventListener('pointercancel',release);
+  cv.addEventListener('pointerleave',function(){px=py=-9999; tiltTo=-.36; if(!drag){return;} });
+  window.addEventListener('resize',refresh);
+  if(mq.addEventListener){mq.addEventListener('change',refresh);}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting; if(visible){refresh();}}).observe(cv);
+  }
+  window.arlzGlobe={refresh:refresh};
+  apply();
+  refresh();
+})();
+</script>
+</body>
+</html>
