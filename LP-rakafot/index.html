@@ -110,7 +110,6 @@ input[aria-invalid="true"]{border-color:#a3261d}
 .form-privacy{margin:0;font-size:.84rem;color:#3c4d44}
 .form-privacy a{color:inherit;text-decoration:underline;text-underline-offset:.16em}
 .form-privacy a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.agree-note{display:block;margin-block-start:-.45rem;margin-inline-start:1.7rem;color:#3c4d44;font-size:.8rem;line-height:1.4}
 .form-privacy-details summary{width:fit-content;font-weight:700;cursor:pointer}
 .form-privacy-details summary:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 .form-privacy-details p{margin-top:.35rem}
@@ -182,15 +181,14 @@ input[aria-invalid="true"]{border-color:#a3261d}
               <input type="checkbox" id="fAgree" name="updates" aria-describedby="marketing-note">
               <span>אני מסכים/ה לקבל עדכונים ותוכן שיווקי בטלפון, בוואטסאפ ובדוא״ל.</span>
             </label>
-            <small class="agree-note" id="marketing-note">העדכונים הם מארלוזורוב על רקפות בלבד. הסימון לא חובה ואפשר לבטל בכל עת.</small>
-            <p class="form-privacy" id="lead-privacy">השארת פרטים היא לבחירתכם. שם ונייד נדרשים לשליחה, כדי שנוכל לחזור אליכם לגבי רקפות.</p>
             <details class="form-privacy form-privacy-details">
               <summary>איך משתמשים בפרטים?</summary>
-              <p>אין חובה חוקית למסור פרטים. ללא שם וטלפון נייד לא ניתן לשלוח את הטופס. מסירת דוא״ל והסכמה לעדכונים הן לבחירתכם.</p>
+              <p>אין חובה חוקית למסור פרטים. ללא שם וטלפון נייד לא ניתן לשלוח את הטופס. מסירת דוא״ל היא לבחירתכם.</p>
+              <p id="marketing-note">העדכונים הם מארלוזורוב על רקפות בלבד. הסימון לא חובה ואפשר לבטל בכל עת.</p>
               <p>ארלוזורוב נכסים ויזמות בע״מ (<a dir="ltr" href="mailto:office@arlz-group.com">office@arlz-group.com</a>) משתמשת בפרטים כדי לטפל בפנייה ולחזור אליכם לגבי רקפות, לרבות אם מתפנה מקום בעקבות פרישת משתתף. הפרטים מועברים באמצעות Vercel ונשמרים בגיליון Google Sheets פרטי של החברה. הם לא ישמשו לשיווק פרויקטים אחרים.</p>
               <p>אפשר לבקש לעיין במידע ולתקנו בהתאם לדין. <a href="/#privacy">למדיניות הפרטיות המלאה</a>.</p>
             </details>
-            <button class="go" type="submit" id="send" aria-describedby="lead-privacy" disabled>אני רוצה פרטים</button>
+            <button class="go" type="submit" id="send" disabled>אני רוצה פרטים</button>
             <span class="err" id="eSend" role="alert" aria-live="assertive"></span>
           <noscript><p class="err">כדי להירשם צריך להפעיל JavaScript בדפדפן.</p></noscript>
           </form>
