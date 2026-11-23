@@ -99,6 +99,13 @@ input[aria-invalid="true"]{border-color:#a3261d}
   .top img{height:2.7rem}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.legal-links{display:flex;flex-wrap:wrap;gap:.3rem 1rem;margin-top:.35rem}
+.legal-links a{color:var(--sand);text-decoration:underline;text-underline-offset:.18em}
+.legal-links a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+.form-privacy{margin:0;font-size:.84rem;color:#3c4d44}
+.form-privacy a{color:inherit;text-decoration:underline;text-underline-offset:.16em}
+.form-privacy a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 </style>
 </head>
 <body>
@@ -162,9 +169,10 @@ input[aria-invalid="true"]{border-color:#a3261d}
             <div class="hp" aria-hidden="true"><label for="fSite">אתר</label><input type="text" id="fSite" name="website" tabindex="-1" autocomplete="off"></div>
             <label class="agree" for="fAgree">
               <input type="checkbox" id="fAgree" name="updates">
-              <span>אני מאשר/ת לקבל עדכונים על ההתארגנות ברקפות בטלפון, בוואטסאפ ובדוא״ל.</span>
+              <span>אני מסכים/ה לקבל מארלוזורוב נכסים ויזמות בע״מ עדכונים ותוכן שיווקי על ההתארגנות ברקפות בטלפון, בוואטסאפ ובדוא״ל (אם מסרתי כתובת). הסימון אינו חובה, וניתן לבטל את ההסכמה בכל עת.</span>
             </label>
-            <button class="go" type="submit" id="send" disabled>אני רוצה פרטים</button>
+            <p class="form-privacy" id="lead-privacy">אין חובה חוקית למסור פרטים. ללא שם וטלפון נייד לא ניתן לשלוח את הטופס; דוא״ל והסכמה לעדכונים הם לבחירתכם. ארלוזורוב נכסים ויזמות בע״מ (<a dir="ltr" href="mailto:office@arlz-group.com">office@arlz-group.com</a>) משתמשת בפרטים כדי לטפל בפנייה ולחזור אליכם. הפרטים מועברים באמצעות Vercel ונשמרים ב־Google Sheets. אפשר לבקש לעיין במידע ולתקנו בהתאם לדין. <a href="/#privacy">למדיניות הפרטיות</a>.</p>
+            <button class="go" type="submit" id="send" aria-describedby="lead-privacy" disabled>אני רוצה פרטים</button>
             <span class="err" id="eSend" role="alert" aria-live="assertive"></span>
           <noscript><p class="err">כדי להירשם צריך להפעיל JavaScript בדפדפן.</p></noscript>
           </form>
@@ -178,6 +186,11 @@ input[aria-invalid="true"]{border-color:#a3261d}
   <div class="wrap">
     <div><strong>קבוצת שאול ורז | קבוצת ארלוזורוב</strong></div>
     <p>האמור בדף זה הוא מידע כללי על התארגנות לקראת מכרז עתידי, ואינו הצעה, התחייבות או ייעוץ. טרם נבחר מגרש. היעדים, המחירים והמועדים תלויים בפרסום המכרז, בתנאיו ובתוצאותיו. התמונות להמחשה בלבד.</p>
+    <nav class="legal-links" aria-label="מידע משפטי ונגישות">
+      <a href="/#privacy">מדיניות פרטיות</a>
+      <a href="/#accessibility">הצהרת נגישות</a>
+      <a href="/#terms">תנאי שימוש</a>
+    </nav>
   </div>
 </footer>
 

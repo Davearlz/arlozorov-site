@@ -58,6 +58,9 @@ h1{font-weight:800;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.05;letter-sp
 svg.trace{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
 .foot{border-top:1px solid var(--line);padding-block:1.4rem 2rem;font-size:.8rem;color:var(--sand-dim)}
 @media (max-width:40rem){.top img{height:2.7rem}.join{width:100%;justify-content:center;padding-inline:1rem;font-size:1.08rem;white-space:nowrap}.body .wrap{padding-inline:1.6rem 1rem}}
+.legal-links{display:flex;flex-wrap:wrap;gap:.3rem 1rem;margin-top:.35rem}
+.legal-links a{color:var(--sand);text-decoration:underline;text-underline-offset:.18em}
+.legal-links a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
 </style>
 </head>
 <body>
@@ -98,7 +101,14 @@ svg.trace{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 </main>
 
 <footer class="foot">
-  <div class="wrap">קבוצת שאול ורז | קבוצת ארלוזורוב. טרם נבחר מגרש, והמגרש המסומן להמחשה בלבד.</div>
+  <div class="wrap">
+    <p>קבוצת שאול ורז | קבוצת ארלוזורוב. טרם נבחר מגרש, והמגרש המסומן להמחשה בלבד.</p>
+    <nav class="legal-links" aria-label="מידע משפטי ונגישות">
+      <a href="/#privacy">מדיניות פרטיות</a>
+      <a href="/#accessibility">הצהרת נגישות</a>
+      <a href="/#terms">תנאי שימוש</a>
+    </nav>
+  </div>
 </footer>
 
 <script>
