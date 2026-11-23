@@ -47,7 +47,8 @@ h1,h2,h3{line-height:1.08;text-wrap:balance}
 .switch{position:absolute;inset-block-start:.8rem;inset-inline-start:clamp(1rem,4vw,2.5rem);z-index:2;display:flex;background:rgba(13,42,31,.8);border:1px solid var(--line);border-radius:999px;padding:.2rem;backdrop-filter:blur(6px)}
 .switch button{font:inherit;font-size:.85rem;font-weight:600;color:var(--sand);background:none;border:0;border-radius:999px;padding:.3rem .9rem;cursor:pointer}
 .switch button[aria-pressed="true"]{background:var(--sand);color:var(--ink)}
-.note{position:absolute;inset-block-start:.9rem;inset-inline-end:clamp(1rem,4vw,2.5rem);z-index:2;font-size:.74rem;color:#fff;background:rgba(13,42,31,.6);padding:.15rem .6rem;border-radius:999px}
+.switch button:focus-visible{outline-color:var(--sand)}
+.note{position:absolute;max-inline-size:56%;inset-block-start:.9rem;inset-inline-end:clamp(1rem,4vw,2.5rem);z-index:2;font-size:.74rem;color:#fff;background:rgba(13,42,31,.6);padding:.15rem .6rem;border-radius:999px}
 
 /* headline, points, form */
 .intro .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;padding-block:clamp(1.6rem,3.5vw,2.6rem) clamp(2.5rem,5vw,4rem)}
@@ -68,8 +69,9 @@ h1,h2,h3{line-height:1.08;text-wrap:balance}
 form{display:grid;gap:.7rem;margin-top:1rem}
 label.f{display:grid;gap:.2rem;font-weight:600;font-size:.9rem}
 label.f small{font-weight:400;color:#5a675f}
-input[type=text],input[type=tel],input[type=email]{font:inherit;font-size:1.05rem;padding:.6rem .8rem;border:1.5px solid #b8b6a8;border-radius:.6rem;background:#fff;color:var(--ink);width:100%}
-input:focus-visible{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--ink)}
+input[type=text],input[type=tel],input[type=email]{font:inherit;font-size:1.05rem;padding:.6rem .8rem;border:1.5px solid #8a8878;border-radius:.6rem;background:#fff;color:var(--ink);width:100%}
+.card :focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.card input:focus-visible{border-color:var(--ink)}
 input[aria-invalid="true"]{border-color:#a3261d}
 .err{color:#a3261d;font-size:.84rem;font-weight:400}
 .agree{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;font-size:.84rem;color:#3c4d44}
@@ -89,7 +91,7 @@ input[aria-invalid="true"]{border-color:#a3261d}
 
 @media (max-width:60rem){
   .stage{aspect-ratio:3/2;max-height:none}
-  .note{position:static;display:block;border-radius:0;text-align:center;background:none;color:var(--sand-dim);padding:.4rem 1rem 0}
+  .note{position:static;display:block;max-inline-size:none;border-radius:0;text-align:center;background:none;color:var(--sand-dim);padding:.4rem 1rem 0}
   .intro .wrap{grid-template-columns:1fr}
   .card{margin-top:0}
   .points{grid-template-columns:1fr;gap:.9rem}
@@ -132,7 +134,7 @@ input[aria-invalid="true"]{border-color:#a3261d}
         <button type="button" id="showHome" aria-pressed="true">הבית</button>
       </div>
     </div>
-    <span class="note">תוכנית השכונה על צילום אוויר והדמיית בית, להמחשה בלבד</span>
+    <span class="note" id="land-status" role="status" aria-live="polite" aria-atomic="true">הדמיית בית פרטי עם גינה ליד תוכנית רקפות, להמחשה בלבד.</span>
   </div>
 
   <section class="intro">
@@ -318,7 +320,16 @@ input[aria-invalid="true"]{border-color:#a3261d}
     if(busy){raf=requestAnimationFrame(tick);}
   }
   function kick(){if(!raf){raf=requestAnimationFrame(tick);}}
-  function press(k){for(var n in btn){btn[n].setAttribute('aria-pressed',n===k?'true':'false');}}
+  var landStatus=document.getElementById('land-status');
+  var landDescriptions={
+    now:'צילום אוויר של השטח בצפון באר שבע לפני הבנייה, ללא שכבת התוכנית.',
+    plan:'תוכנית שכונת רקפות מוצגת כשכבה על צילום האוויר.',
+    home:'הדמיית בית פרטי עם גינה ליד תוכנית רקפות, להמחשה בלבד.'
+  };
+  function press(k){
+    for(var n in btn){btn[n].setAttribute('aria-pressed',n===k?'true':'false');}
+    if(landStatus.textContent!==landDescriptions[k]){landStatus.textContent=landDescriptions[k];}
+  }
   function playIntro(){
     press('home');
     if(mq.matches){mode='home';p=hl=hp=1;q=0;T={p:1,hl:1,hp:1};focus=narrow()?.48:.5;draw();return;}
