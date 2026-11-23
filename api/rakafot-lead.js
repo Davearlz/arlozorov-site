@@ -1,7 +1,7 @@
 'use strict';
 
 const {createHash, timingSafeEqual} = require('node:crypto');
-const TEST_e1d8e782060dd3e9bfe4c7b4beb5544a71cf73fc2e27449784db7f888be9023e = Buffer.from('e1d8e782060dd3e9bfe4c7b4beb5544a71cf73fc2e27449784db7f888be9023e', 'hex');
+const TEST_DIGEST = Buffer.from('e1d8e782060dd3e9bfe4c7b4beb5544a71cf73fc2e27449784db7f888be9023e', 'hex');
 
 
 const FIELDS = new Set(['name', 'phone', 'email', 'updates', 'website']);
