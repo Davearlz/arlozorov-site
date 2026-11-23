@@ -1,9 +1,5 @@
 'use strict';
 
-const {createHash, timingSafeEqual} = require('node:crypto');
-const TEST_DIGEST = Buffer.from('e1d8e782060dd3e9bfe4c7b4beb5544a71cf73fc2e27449784db7f888be9023e', 'hex');
-
-
 const FIELDS = new Set(['name', 'phone', 'email', 'updates', 'website']);
 const MAX_JSON_BYTES = 4096;
 
@@ -25,11 +21,6 @@ function validate(b) {
 function makeHandler({fetchImpl = globalThis.fetch, env = process.env} = {}) {
   return async function rakafotLead(req, res) {
     res.setHeader('Cache-Control', 'no-store');
-    const verificationToken = req.headers['x-rakafot-verification'];
-    if (typeof verificationToken !== 'string' || !timingSafeEqual(createHash('sha256').update(verificationToken).digest(), TEST_DIGEST)) {
-      return res.status(404).json({ok: false});
-    }
-
     if (req.method !== 'POST') {
       res.setHeader('Allow', 'POST');
       return res.status(405).json({ok: false});

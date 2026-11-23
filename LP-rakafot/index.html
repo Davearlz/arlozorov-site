@@ -145,27 +145,29 @@ input[aria-invalid="true"]{border-color:#a3261d}
       <aside class="card" id="join" aria-labelledby="joinTitle">
         <h2 id="joinTitle">הצטרפו לקבוצת המתעניינים</h2>
         <div id="formWrap">
-          <p class="sub" id="registration-status">ההרשמה עדיין לא פתוחה. בשלב זה לא ניתן לשלוח פרטים.</p>
-          <div id="lead" aria-describedby="registration-status">
+          <p class="sub">בלי התחייבות. אחרי ההרשמה תקבלו קישור לקבוצת וואטסאפ שקטה עם כל העדכונים.</p>
+          <form id="lead" method="post" action="/api/rakafot-lead" novalidate>
             <label class="f" for="fName">שם מלא
-              <input disabled type="text" id="fName" name="name" autocomplete="name" required>
+              <input type="text" id="fName" name="name" autocomplete="name" required>
               <span class="err" id="eName" role="alert"></span>
             </label>
             <label class="f" for="fPhone">טלפון נייד
-              <input disabled type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" dir="ltr" required>
+              <input type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" dir="ltr" required>
               <span class="err" id="ePhone" role="alert"></span>
             </label>
             <label class="f" for="fMail">דוא״ל <small>(לא חובה)</small>
-              <input disabled type="email" id="fMail" name="email" autocomplete="email" dir="ltr">
+              <input type="email" id="fMail" name="email" autocomplete="email" dir="ltr">
               <span class="err" id="eMail" role="alert"></span>
             </label>
+            <div class="hp" aria-hidden="true"><label for="fSite">אתר</label><input type="text" id="fSite" name="website" tabindex="-1" autocomplete="off"></div>
             <label class="agree" for="fAgree">
-              <input disabled type="checkbox" id="fAgree" name="updates">
+              <input type="checkbox" id="fAgree" name="updates">
               <span>אני מאשר/ת לקבל עדכונים על ההתארגנות ברקפות בטלפון, בוואטסאפ ובדוא״ל.</span>
             </label>
-            <button class="go" type="button" id="send" disabled>אני רוצה פרטים</button>
-            <span class="err" id="eSend" role="alert"></span>
-          </div>
+            <button class="go" type="submit" id="send" disabled>אני רוצה פרטים</button>
+            <span class="err" id="eSend" role="alert" aria-live="assertive"></span>
+          <noscript><p class="err">כדי להירשם צריך להפעיל JavaScript בדפדפן.</p></noscript>
+          </form>
         </div>
       </aside>
     </div>
@@ -316,6 +318,44 @@ input[aria-invalid="true"]{border-color:#a3261d}
     new IntersectionObserver(function(en){document.getElementById('sticky').style.visibility=en[0].isIntersecting?'hidden':'visible';},{threshold:.25}).observe(document.getElementById('join'));
   }
 
+  /* ---------- the form ---------- */
+  var form=document.getElementById('lead'), send=document.getElementById('send');
+  var fName=document.getElementById('fName'), fPhone=document.getElementById('fPhone'), fMail=document.getElementById('fMail');
+  function mark(input,errEl,msg){errEl.textContent=msg||''; input.setAttribute('aria-invalid',msg?'true':'false'); return !msg;}
+  function cleanPhone(v){return v.replace(/[^\d+]/g,'');}
+  function validate(){
+    var ok=true, first=null, ph=cleanPhone(fPhone.value);
+    if(!mark(fName,document.getElementById('eName'),fName.value.trim().length<2?'כתבו את שמכם המלא.':'')){ok=false;first=first||fName;}
+    if(!mark(fPhone,document.getElementById('ePhone'),/^(\+972|0)5\d{8}$/.test(ph)?'':'כתבו מספר נייד תקין, למשל 050-1234567.')){ok=false;first=first||fPhone;}
+    var m=fMail.value.trim();
+    if(!mark(fMail,document.getElementById('eMail'),(m&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m))?'כתובת הדוא״ל אינה תקינה. אפשר גם להשאיר ריק.':'')){ok=false;first=first||fMail;}
+    if(first){first.focus();}
+    return ok;
+  }
+  var pending=false, submitError=document.getElementById('eSend');
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    if(pending){return;}
+    submitError.textContent='';
+    if(!validate()){return;}
+    pending=true; send.disabled=true; send.textContent='שולחים…';
+    form.setAttribute('aria-busy','true');
+    try{
+      var response=await fetch('/api/rakafot-lead',{
+        method:'POST',headers:{'Content-Type':'application/json'},cache:'no-store',
+        body:JSON.stringify({name:fName.value.trim(),phone:cleanPhone(fPhone.value),email:fMail.value.trim(),
+          updates:document.getElementById('fAgree').checked,website:document.getElementById('fSite').value})
+      });
+      var result=response.ok ? await response.json() : null;
+      if(!result || result.ok!==true){throw new Error('submit failed');}
+      location.assign('/LP-rakafot/thanks');
+    }catch(_){
+      pending=false; send.disabled=false; send.textContent='אני רוצה פרטים';
+      form.removeAttribute('aria-busy');
+      submitError.textContent='לא הצלחנו לאשר שהפרטים נשמרו. אפשר לנסות שוב, או להתקשר ל־050-7890222.';
+    }
+  });
+  send.disabled=false;
 })();
 </script>
 </body>
