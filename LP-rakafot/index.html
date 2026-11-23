@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בונים יחד ברקפות</title>
+<meta name="description" content="בית פרטי ברקפות, באר שבע. התארגנות לרכישת קרקע במכרז רמ״י ולבנייה משותפת. קבוצת שאול ורז וקבוצת ארלוזורוב.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: one band of land that becomes a neighbourhood and then a home; under it a headline, three points and a form. */
+  --night:#0D2A1F;
+  --night-2:#143A2B;
+  --sand:#EDE4CF;
+  --sand-dim:#B9C2B2;
+  --gold:#D8B45C;
+  --stone:#F3EFE4;
+  --ink:#10261D;
+  --line:rgba(237,228,207,.2);
+  --font:"Assistant","Segoe UI","Arial Hebrew",Arial,sans-serif;
+  --wrap:72rem;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:112.5%;scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--night);color:var(--sand);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{line-height:1.08;text-wrap:balance}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+.top{background:var(--stone);color:var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.4rem;padding-block:.5rem}
+.top img{height:3.3rem;width:auto}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* the land */
+.hero{position:relative}
+.stage{position:relative;width:100%;aspect-ratio:2075/758;max-height:72vh;overflow:hidden;background:#b9a27f}
+.stage img,.stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.stage::after{content:"";position:absolute;inset:auto 0 0 0;height:14%;background:linear-gradient(to top,rgba(13,42,31,.85),rgba(13,42,31,0));pointer-events:none}
+.switch{position:absolute;inset-block-start:.8rem;inset-inline-start:clamp(1rem,4vw,2.5rem);z-index:2;display:flex;background:rgba(13,42,31,.8);border:1px solid var(--line);border-radius:999px;padding:.2rem;backdrop-filter:blur(6px)}
+.switch button{font:inherit;font-size:.85rem;font-weight:600;color:var(--sand);background:none;border:0;border-radius:999px;padding:.3rem .9rem;cursor:pointer}
+.switch button[aria-pressed="true"]{background:var(--sand);color:var(--ink)}
+.note{position:absolute;inset-block-start:.9rem;inset-inline-end:clamp(1rem,4vw,2.5rem);z-index:2;font-size:.74rem;color:#fff;background:rgba(13,42,31,.6);padding:.15rem .6rem;border-radius:999px}
+
+/* headline, points, form */
+.intro .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(1.5rem,4vw,4rem);align-items:start;padding-block:clamp(1.6rem,3.5vw,2.6rem) clamp(2.5rem,5vw,4rem)}
+.place{font-weight:600;color:var(--gold)}
+.intro h1{font-weight:800;font-size:clamp(2.7rem,5.6vw,4.3rem);margin-top:.2rem;letter-spacing:-.015em}
+.intro .less{font-weight:600;font-size:clamp(1.45rem,3vw,2.2rem);line-height:1.15;margin-top:.4rem}
+.points{list-style:none;margin:2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
+.points li{border-top:3px solid var(--gold);padding-top:.8rem}
+.points b{display:block;font-weight:800;font-size:1.35rem;line-height:1.15}
+.points li>span{display:block;margin-top:.3rem;color:var(--sand);font-size:1rem}
+.fine{margin-top:1.1rem;font-size:.82rem;color:var(--sand-dim);max-width:40rem}
+.facts{margin-top:1.6rem;padding-top:1.1rem;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:.5rem 2.5rem;font-weight:600}
+.facts small{display:block;font-weight:400;font-size:.82rem;color:var(--sand-dim)}
+
+.card{position:relative;z-index:3;background:var(--stone);color:var(--ink);border-radius:1.25rem 1.25rem 1.25rem .3rem;padding:1.5rem 1.5rem 1.4rem;margin-top:-8.5rem;box-shadow:0 24px 60px rgba(0,0,0,.4);color-scheme:light}
+.card h2{font-size:1.6rem;font-weight:800}
+.card .sub{margin-top:.4rem;color:#3c4d44;font-size:.92rem}
+form{display:grid;gap:.7rem;margin-top:1rem}
+label.f{display:grid;gap:.2rem;font-weight:600;font-size:.9rem}
+label.f small{font-weight:400;color:#5a675f}
+input[type=text],input[type=tel],input[type=email]{font:inherit;font-size:1.05rem;padding:.6rem .8rem;border:1.5px solid #b8b6a8;border-radius:.6rem;background:#fff;color:var(--ink);width:100%}
+input:focus-visible{outline:3px solid var(--gold);outline-offset:1px;border-color:var(--ink)}
+input[aria-invalid="true"]{border-color:#a3261d}
+.err{color:#a3261d;font-size:.84rem;font-weight:400}
+.agree{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;font-size:.84rem;color:#3c4d44}
+.agree input{width:1.1rem;height:1.1rem;margin-top:.2rem;accent-color:var(--night)}
+.go{font:inherit;font-weight:800;font-size:1.15rem;background:var(--night);color:var(--sand);border:0;border-radius:999px;padding:.8rem 1.2rem;cursor:pointer}
+.go:hover{background:var(--night-2)}
+.go[disabled]{opacity:.6;cursor:default}
+.done{display:grid;gap:.9rem;margin-top:1rem}
+.done .wa{display:block;text-align:center;text-decoration:none;font-weight:800;background:var(--night);color:var(--sand);border-radius:999px;padding:.85rem 1.2rem}
+.demo{background:#fff;border:1px dashed #8c8a7c;border-radius:.6rem;padding:.6rem .8rem;font-size:.86rem}
+
+.foot{border-top:1px solid var(--line);padding-block:1.4rem 5rem;font-size:.8rem;color:var(--sand-dim)}
+.foot .wrap{display:grid;gap:.4rem}
+.foot strong{color:var(--sand);font-weight:600}
+.sticky{display:none}
+[hidden]{display:none !important}
+
+@media (max-width:60rem){
+  .stage{aspect-ratio:3/2;max-height:none}
+  .note{position:static;display:block;border-radius:0;text-align:center;background:none;color:var(--sand-dim);padding:.4rem 1rem 0}
+  .intro .wrap{grid-template-columns:1fr}
+  .card{margin-top:0}
+  .points{grid-template-columns:1fr;gap:.9rem}
+  .points li{border-top:0;border-inline-start:3px solid var(--gold);padding:0 .9rem 0 0}
+  .sticky{display:block;position:fixed;inset:auto 0 0 0;z-index:10;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(13,42,31,.94);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+  .sticky a{display:block;text-align:center;text-decoration:none;font-weight:800;background:var(--gold);color:var(--ink);border-radius:999px;padding:.7rem 1rem}
+  .top img{height:2.7rem}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="/LP-rakafot/logo.png" alt="ארלוזורוב L.T.I" width="640" height="395">
+    <img src="/LP-rakafot/sr-logo.png" alt="קבוצת שאול ורז" width="520" height="383">
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="stage" id="stage">
+      <img src="/LP-rakafot/after.jpg" alt="צילום אוויר של צפון באר שבע ועליו תוכנית שכונת רקפות, ולצידו הדמיה של בית פרטי עם גינה." width="2075" height="758">
+      <canvas id="land" aria-hidden="true"></canvas>
+      <div class="switch" role="group" aria-label="שלבי התמונה">
+        <button type="button" id="showNow" aria-pressed="false">השטח</button>
+        <button type="button" id="showPlan" aria-pressed="false">התוכנית</button>
+        <button type="button" id="showHome" aria-pressed="true">הבית</button>
+      </div>
+    </div>
+    <span class="note">תוכנית השכונה על צילום אוויר והדמיית בית, להמחשה בלבד</span>
+  </div>
+
+  <section class="intro">
+    <div class="wrap">
+      <div>
+        <p class="place">שכונת רקפות, באר שבע</p>
+        <h1>בית פרטי ברקפות.</h1>
+        <p class="less">בהרבה פחות ממה שחשבתם.</p>
+        <ul class="points">
+          <li><b>קרקע בהנחה</b><span>יעד של <span class="ltr">30%+</span> מתחת למחיר השוק</span></li>
+          <li><b>בנייה בלי כאב ראש</b><span>צוות מנוסה מנהל את הבנייה</span></li>
+          <li><b>קונים יחד ובונים יחד</b><span>משלמים פחות</span></li>
+        </ul>
+        <p class="fine">ההנחה היא יעד לרכישת הקרקע, ביחס למחיר השוק של קרקע דומה. המחיר בפועל תלוי בתנאי מכרז רמ״י ובתוצאותיו.</p>
+        <div class="facts">
+          <div>100 בתים ודירות כבר נבנו כך<small>בחמישה פרויקטים בבאר שבע, בדימונה ובכרמית</small></div>
+          <div>וובינר היכרות: <span class="ltr">3.12.2026</span>, <span class="ltr">20:00</span><small>המועד עשוי להשתנות לפי פרסום המכרז</small></div>
+        </div>
+      </div>
+
+      <aside class="card" id="join" aria-labelledby="joinTitle">
+        <h2 id="joinTitle">הצטרפו לקבוצת המתעניינים</h2>
+        <div id="formWrap">
+          <p class="sub" id="registration-status">ההרשמה עדיין לא פתוחה. בשלב זה לא ניתן לשלוח פרטים.</p>
+          <div id="lead" aria-describedby="registration-status">
+            <label class="f" for="fName">שם מלא
+              <input disabled type="text" id="fName" name="name" autocomplete="name" required>
+              <span class="err" id="eName" role="alert"></span>
+            </label>
+            <label class="f" for="fPhone">טלפון נייד
+              <input disabled type="tel" id="fPhone" name="phone" autocomplete="tel" inputmode="tel" dir="ltr" required>
+              <span class="err" id="ePhone" role="alert"></span>
+            </label>
+            <label class="f" for="fMail">דוא״ל <small>(לא חובה)</small>
+              <input disabled type="email" id="fMail" name="email" autocomplete="email" dir="ltr">
+              <span class="err" id="eMail" role="alert"></span>
+            </label>
+            <label class="agree" for="fAgree">
+              <input disabled type="checkbox" id="fAgree" name="updates">
+              <span>אני מאשר/ת לקבל עדכונים על ההתארגנות ברקפות בטלפון, בוואטסאפ ובדוא״ל.</span>
+            </label>
+            <button class="go" type="button" id="send" disabled>אני רוצה פרטים</button>
+            <span class="err" id="eSend" role="alert"></span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><strong>קבוצת שאול ורז | קבוצת ארלוזורוב</strong></div>
+    <p>האמור בדף זה הוא מידע כללי על התארגנות לקראת מכרז עתידי, ואינו הצעה, התחייבות או ייעוץ. טרם נבחר מגרש. היעדים, המחירים והמועדים תלויים בפרסום המכרז, בתנאיו ובתוצאותיו. התמונות להמחשה בלבד.</p>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky"><a href="#join">אני רוצה פרטים</a></div>
+
+<script>
+(function(){
+  /* ---------- land, then plan, then a home ---------- */
+  var OUT=[[0.827,0.3958],[0.826,0.3786],[0.8072,0.3391],[0.8034,0.3179],[0.7918,0.2836],[0.7894,0.2718],[0.7851,0.2678],[0.7793,0.252],[0.773,0.2507],[0.7547,0.2559],[0.733,0.2718],[0.7239,0.2678],[0.7214,0.2704],[0.7152,0.2916],[0.7108,0.2982],[0.7051,0.2982],[0.6978,0.2916],[0.6853,0.3021],[0.6824,0.3166],[0.6786,0.3272],[0.6602,0.347],[0.6511,0.3456],[0.6467,0.3496],[0.6414,0.3668],[0.626,0.3865],[0.613,0.4169],[0.6005,0.4222],[0.5976,0.438],[0.5942,0.4472],[0.5812,0.4631],[0.5663,0.4697],[0.5422,0.4683],[0.5287,0.471],[0.519,0.4617],[0.4858,0.4591],[0.4704,0.4459],[0.466,0.4354],[0.4646,0.4261],[0.4646,0.4103],[0.4631,0.4063],[0.4448,0.4037],[0.439,0.3918],[0.4376,0.3826],[0.4386,0.3615],[0.4357,0.3509],[0.4352,0.3338],[0.4333,0.3285],[0.426,0.3232],[0.4092,0.3021],[0.3754,0.3483],[0.3369,0.3892],[0.2945,0.3575],[0.2487,0.3522],[0.2347,0.3588],[0.2149,0.3628],[0.1908,0.3773],[0.1836,0.3773],[0.173,0.3865],[0.1523,0.4156],[0.1417,0.4208],[0.1364,0.4169],[0.1325,0.4063],[0.1133,0.3232],[0.0988,0.2757],[0.0969,0.2639],[0.0978,0.2401],[0.0949,0.2348],[0.0911,0.2375],[0.0839,0.2361],[0.081,0.2414],[0.08,0.2493],[0.0761,0.2599],[0.0651,0.2744],[0.0622,0.2823],[0.0622,0.2876],[0.0651,0.2929],[0.0786,0.2916],[0.0911,0.3008],[0.0988,0.3232],[0.119,0.4063],[0.1205,0.4156],[0.12,0.4314],[0.1147,0.4472],[0.108,0.4499],[0.08,0.4802],[0.0525,0.5251],[0.0443,0.533],[0.0429,0.5369],[0.0429,0.5435],[0.0631,0.6016],[0.0781,0.6135],[0.0848,0.6148],[0.0887,0.6214],[0.1055,0.6346],[0.1133,0.6504],[0.1181,0.6755],[0.1214,0.6821],[0.1253,0.6768],[0.1552,0.5989],[0.1769,0.5501],[0.1841,0.5409],[0.1913,0.5396],[0.2048,0.5475],[0.2347,0.558],[0.2429,0.5686],[0.2535,0.5673],[0.2945,0.5923],[0.3007,0.6016],[0.3055,0.6016],[0.333,0.6451],[0.3455,0.6715],[0.3629,0.6953],[0.373,0.6873],[0.3827,0.6662],[0.3913,0.6649],[0.4039,0.6794],[0.4096,0.6926],[0.4217,0.7084],[0.4284,0.723],[0.4405,0.7414],[0.4477,0.7243],[0.4843,0.6966],[0.494,0.6939],[0.5161,0.6979],[0.5287,0.7071],[0.5373,0.6913],[0.5725,0.6715],[0.5788,0.6636],[0.586,0.6412],[0.6014,0.6359],[0.6053,0.6148],[0.6087,0.6055],[0.6188,0.595],[0.6366,0.595],[0.6419,0.5989],[0.6458,0.6095],[0.6472,0.6187],[0.6472,0.6293],[0.6443,0.6478],[0.6477,0.653],[0.652,0.6478],[0.6651,0.6451],[0.6684,0.6398],[0.6747,0.6201],[0.68,0.6108],[0.7027,0.5858],[0.7113,0.5831],[0.719,0.5752],[0.7383,0.5884],[0.7422,0.5871],[0.7484,0.566],[0.76,0.5383],[0.7677,0.5277],[0.7745,0.5119],[0.7793,0.5079],[0.7884,0.4855],[0.7957,0.4789],[0.812,0.434],[0.8212,0.4037]];
+  var stage=document.getElementById('stage'), cv=document.getElementById('land'), ctx=cv.getContext('2d');
+  var off=document.createElement('canvas'), octx=off.getContext('2d');
+  var before=new Image(), after=new Image(), home=new Image(), loadedN=0, ready=false;
+  var IW=2075, IH=758, W=0, H=0, dpr=1;
+  // p: plan spread, q: boundary line, hl: house line, hp: house photo
+  var p=1,q=0,hl=1,hp=1, T={p:1,hl:1,hp:1}, mode='home', t0=0, raf=0, focus=.5;
+  var mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var btn={now:document.getElementById('showNow'),plan:document.getElementById('showPlan'),home:document.getElementById('showHome')};
+
+  function size(){
+    var b=stage.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1,2);
+    W=b.width; H=b.height;
+    cv.width=off.width=Math.round(W*dpr); cv.height=off.height=Math.round(H*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0); octx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function narrow(){return W/H<2;}
+  function rect(){
+    var s=Math.max(W/IW,H/IH), dw=IW*s, dh=IH*s;
+    return {x:-(dw-W)*focus, y:-(dh-H)*.5, w:dw, h:dh};
+  }
+  function ease(t){t=t<0?0:t>1?1:t; return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function housePts(r){
+    var hh=H*(narrow()?.66:.7), hw=hh*.98, m=Math.max(14,W*.04), x=W-m-hw, y=H*.93-hh;
+    var plot=narrow()?[r.x+.5*r.w, r.y+.5*r.h]:[r.x+.655*r.w, r.y+.5*r.h];
+    return {box:[x,y,hw,hh], plot:plot,
+      poly:[[x,y+hh*.4],[x+hw/2,y],[x+hw,y+hh*.4],[x+hw,y+hh],[x,y+hh]]};
+  }
+  function trace(pts,frac,alpha,width){
+    var len=0,i;
+    for(i=1;i<pts.length;i++){len+=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);}
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]);
+    for(i=1;i<pts.length;i++){ctx.lineTo(pts[i][0],pts[i][1]);}
+    ctx.setLineDash([len*frac,len]); ctx.lineJoin='round'; ctx.lineCap='round';
+    ctx.globalAlpha=alpha; ctx.shadowColor='rgba(216,180,92,.9)'; ctx.shadowBlur=10;
+    ctx.strokeStyle='#fff'; ctx.lineWidth=width; ctx.stroke();
+    ctx.restore();
+  }
+  function draw(){
+    var r=rect(), i, lw=Math.max(1.5,W/850);
+    ctx.clearRect(0,0,W,H);
+    ctx.drawImage(before,r.x,r.y,r.w,r.h);
+    if(p>0){
+      if(p<1){
+        octx.globalCompositeOperation='source-over';
+        octx.clearRect(0,0,W,H);
+        octx.drawImage(after,r.x,r.y,r.w,r.h);
+        // the plan arrives from the existing city (east) and moves west
+        var feather=.2, edge=1.02-(1.02+feather+.06)*p, x0=r.x+edge*r.w, x1=x0+feather*r.w;
+        var g=octx.createLinearGradient(x0,H,x1+H*.25,0);
+        g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,1)');
+        octx.globalCompositeOperation='destination-in'; octx.fillStyle=g; octx.fillRect(0,0,W,H);
+        ctx.drawImage(off,0,0,W,H);
+      }else{
+        ctx.drawImage(after,r.x,r.y,r.w,r.h);
+      }
+    }
+    if(q>0&&p<1){
+      var pts=[];
+      for(i=0;i<OUT.length;i++){pts.push([r.x+OUT[i][0]*r.w, r.y+OUT[i][1]*r.h]);}
+      pts.push(pts[0]);
+      trace(pts,q,Math.min(1,(1-p)*2.4),lw);
+    }
+    if(hl>0||hp>0){
+      var h=housePts(r), P=h.poly, b=h.box;
+      if(hp>0){
+        ctx.save();
+        ctx.globalAlpha=hp;
+        ctx.beginPath(); ctx.moveTo(P[0][0],P[0][1]); for(i=1;i<P.length;i++){ctx.lineTo(P[i][0],P[i][1]);} ctx.closePath();
+        ctx.shadowColor='rgba(0,0,0,.55)'; ctx.shadowBlur=28; ctx.shadowOffsetY=10; ctx.fillStyle='#1b1b1b'; ctx.fill();
+        ctx.shadowColor='transparent'; ctx.clip();
+        var s=Math.max(b[2]/home.width,b[3]/home.height), dw=home.width*s, dh=home.height*s;
+        ctx.drawImage(home,b[0]-(dw-b[2])*.55,b[1]-(dh-b[3]),dw,dh);
+        ctx.restore();
+      }
+      if(hl>0){
+        // one line: from a plot on the plan, out to the house, and around it
+        var path=[h.plot,P[0],P[1],P[2],P[3],P[4],P[0]];
+        trace(path,hl,1,lw*1.5);
+        ctx.save(); ctx.globalAlpha=Math.min(1,hl*6); ctx.fillStyle='#fff';
+        ctx.beginPath(); ctx.arc(h.plot[0],h.plot[1],lw*2.6,0,6.2832); ctx.fill(); ctx.restore();
+      }
+    }
+  }
+  function tick(now){
+    raf=0;
+    var busy=false;
+    if(mode==='intro'){
+      if(!t0){t0=now;}
+      var t=(now-t0)/1000;
+      q=ease((t-.4)/2.1);
+      p=ease((t-1.5)/2.5);
+      hl=ease((t-3.5)/1.5);
+      hp=ease((t-4.7)/.9);
+      focus=narrow()?(.78-.3*ease((t-.4)/3.6)):.5;
+      if(t<5.7){busy=true;}else{mode='home';p=hl=hp=1;q=0;T={p:1,hl:1,hp:1};}
+    }else{
+      q=0;
+      var d;
+      d=T.p-p; if(Math.abs(d)>.002){p+=d*.14;busy=true;}else{p=T.p;}
+      d=T.hl-hl; if(Math.abs(d)>.002){hl+=d*.2;busy=true;}else{hl=T.hl;}
+      d=T.hp-hp; if(Math.abs(d)>.002){hp+=d*.25;busy=true;}else{hp=T.hp;}
+    }
+    draw();
+    if(busy){raf=requestAnimationFrame(tick);}
+  }
+  function kick(){if(!raf){raf=requestAnimationFrame(tick);}}
+  function press(k){for(var n in btn){btn[n].setAttribute('aria-pressed',n===k?'true':'false');}}
+  function playIntro(){
+    press('home');
+    if(mq.matches){mode='home';p=hl=hp=1;q=0;T={p:1,hl:1,hp:1};focus=narrow()?.48:.5;draw();return;}
+    mode='intro';t0=0;p=q=hl=hp=0;kick();
+  }
+  function goTo(k,target){
+    if(!ready){return;}
+    press(k); mode=k; T=target;
+    if(mq.matches){p=T.p;hl=T.hl;hp=T.hp;q=0;draw();}else{kick();}
+  }
+  btn.now.addEventListener('click',function(){goTo('now',{p:0,hl:0,hp:0});});
+  btn.plan.addEventListener('click',function(){goTo('plan',{p:1,hl:0,hp:0});});
+  btn.home.addEventListener('click',function(){if(ready){playIntro();}});
+  window.addEventListener('resize',function(){if(!ready){return;} size(); if(mode!=='intro'){focus=narrow()?.48:.5;} draw();});
+  function loaded(){ if(++loadedN<3){return;} ready=true; size(); playIntro(); }
+  before.onload=after.onload=home.onload=loaded;
+  before.src='/LP-rakafot/before.jpg'; after.src='/LP-rakafot/after.jpg'; home.src='/LP-rakafot/house.jpg';
+
+  /* ---------- sticky button hides once the form is on screen ---------- */
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){document.getElementById('sticky').style.visibility=en[0].isIntersecting?'hidden':'visible';},{threshold:.25}).observe(document.getElementById('join'));
+  }
+
+})();
+</script>
+</body>
+</html>

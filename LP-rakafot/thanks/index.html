@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>נרשמתם לרקפות</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: the same white line marks one plot on the plan, then runs down and closes around the WhatsApp button. */
+  --night:#0D2A1F;
+  --night-2:#143A2B;
+  --sand:#EDE4CF;
+  --sand-dim:#B9C2B2;
+  --gold:#D8B45C;
+  --stone:#F3EFE4;
+  --ink:#10261D;
+  --wa:#1F8A4C;
+  --line:rgba(237,228,207,.2);
+  --font:"Assistant","Segoe UI","Arial Hebrew",Arial,sans-serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:112.5%}
+body{margin:0;background:var(--night);color:var(--sand);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:4px;border-radius:6px}
+.wrap{max-width:62rem;margin-inline:auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+.top{background:var(--stone);color:var(--ink)}
+.top .wrap{max-width:72rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.4rem;padding-block:.5rem}
+.top img{height:3.3rem;width:auto}
+
+.scene{position:relative}
+.stage{position:relative;height:clamp(13rem,34vw,22rem);overflow:hidden;background:#3a3326}
+.stage img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.75)}
+.stage::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(to top,var(--night),rgba(13,42,31,0))}
+.note{position:absolute;inset-block-start:.8rem;inset-inline-end:clamp(1rem,4vw,2.5rem);font-size:.74rem;color:#fff;background:rgba(13,42,31,.6);padding:.15rem .6rem;border-radius:999px;z-index:2}
+
+.body{padding-block:clamp(1.6rem,4vw,2.6rem) clamp(3rem,7vw,5rem)}
+h1{font-weight:800;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.05;letter-spacing:-.015em;text-wrap:balance}
+.lead{font-size:clamp(1.15rem,2.2vw,1.4rem);margin-top:.8rem;max-width:34rem}
+.join{display:inline-flex;align-items:center;gap:.7rem;margin-top:2.2rem;text-decoration:none;font-weight:800;font-size:clamp(1.2rem,2.6vw,1.45rem);color:var(--sand);background:transparent;border:2px solid rgba(237,228,207,.45);border-radius:999px;padding:1rem 2rem;position:relative;z-index:3;transition:background-color .6s ease,border-color .6s ease,color .6s ease}
+.join svg{width:1.5rem;height:1.5rem;flex:none}
+.join.lit{background:var(--wa);border-color:var(--wa);color:#fff}
+.join:hover{background:#176E3C;border-color:#176E3C;color:#fff}
+.after{margin-top:2.6rem;padding-top:1.2rem;border-top:1px solid var(--line);display:grid;gap:.3rem;max-width:34rem}
+.after b{font-weight:600;font-size:1.05rem}
+.after a{font-weight:600;color:var(--gold)}
+.after small{color:var(--sand-dim);font-size:.86rem}
+
+svg.trace{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:visible}
+.foot{border-top:1px solid var(--line);padding-block:1.4rem 2rem;font-size:.8rem;color:var(--sand-dim)}
+@media (max-width:40rem){.top img{height:2.7rem}.join{width:100%;justify-content:center;padding-inline:1rem;font-size:1.08rem;white-space:nowrap}.body .wrap{padding-inline:1.6rem 1rem}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <img src="/LP-rakafot/logo.png" alt="ארלוזורוב L.T.I" width="640" height="395">
+    <img src="/LP-rakafot/sr-logo.png" alt="קבוצת שאול ורז" width="520" height="383">
+  </div>
+</header>
+
+<main class="scene" id="scene">
+  <div class="stage">
+    <img id="plan" src="/LP-rakafot/after.jpg" alt="תוכנית שכונת רקפות על צילום אוויר, ועליה מגרש אחד מסומן." width="2075" height="758">
+    <span class="note">להמחשה בלבד</span>
+  </div>
+
+  <div class="body">
+    <div class="wrap">
+      <h1>עדכונים על רקפות</h1>
+      <p class="lead">כל העדכונים על המכרז והוובינר יוצאים רק בקבוצת הוואטסאפ השקטה.</p>
+      <a class="join" id="join" href="https://chat.whatsapp.com/G25fobieZW30jb73BE789C" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/></svg>
+        הצטרפות לקבוצת הוואטסאפ
+      </a>
+      <div class="after">
+        <b>וובינר היכרות: <span class="ltr">3.12.2026</span>, בשעה <span class="ltr">20:00</span></b>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA%3A%20%D7%91%D7%95%D7%A0%D7%99%D7%9D%20%D7%99%D7%97%D7%93%20%D7%91%D7%A8%D7%A7%D7%A4%D7%95%D7%AA&amp;dates=20261203T180000Z/20261203T190000Z&amp;details=%D7%A7%D7%99%D7%A9%D7%95%D7%A8%20%D7%9C%D7%95%D7%95%D7%91%D7%99%D7%A0%D7%A8%20%D7%99%D7%A4%D7%95%D7%A8%D7%A1%D7%9D%20%D7%91%D7%A7%D7%91%D7%95%D7%A6%D7%AA%20%D7%94%D7%95%D7%95%D7%90%D7%98%D7%A1%D7%90%D7%A4%3A%20https%3A%2F%2Fchat.whatsapp.com%2FG25fobieZW30jb73BE789C" rel="noopener">שמירה ביומן גוגל</a>
+        <small>המועד עשוי להשתנות לפי פרסום המכרז. נעדכן בקבוצה.</small>
+      </div>
+    </div>
+  </div>
+
+  <svg class="trace" id="trace" aria-hidden="true">
+    <path id="plotFill" fill="#D8B45C" fill-opacity="0" />
+    <path id="path" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</main>
+
+<footer class="foot">
+  <div class="wrap">קבוצת שאול ורז | קבוצת ארלוזורוב. טרם נבחר מגרש, והמגרש המסומן להמחשה בלבד.</div>
+</footer>
+
+<script>
+(function(){
+  var scene=document.getElementById('scene'), img=document.getElementById('plan'), btn=document.getElementById('join');
+  var path=document.getElementById('path'), fill=document.getElementById('plotFill');
+  var IW=2075, IH=758, PLOT=[.655,.5], total=0, plotLen=0, t0=0, done=false;
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function layout(){
+    var s=img.getBoundingClientRect(), sc=scene.getBoundingClientRect(), b=btn.getBoundingClientRect();
+    var k=Math.max(s.width/IW,s.height/IH), dw=IW*k, dh=IH*k;
+    // keep the marked plot a little to the right of centre on every screen
+    var f=dw>s.width?Math.min(1,Math.max(0,(PLOT[0]*dw-.62*s.width)/(dw-s.width))):.5;
+    img.style.objectPosition=(f*100)+'% 50%';
+    var ox=s.left-sc.left-(dw-s.width)*f, oy=s.top-sc.top-(dh-s.height)*.5;
+    var cx=ox+PLOT[0]*dw, cy=oy+PLOT[1]*dh, w=Math.max(16,dw*.022), h=Math.max(14,dh*.032);
+    var q=[[cx-w/2,cy-h*.45],[cx+w/2,cy-h*.6],[cx+w/2,cy+h*.45],[cx-w/2,cy+h*.6]];
+    var plot='M'+q[0]+'L'+q[1]+'L'+q[2]+'L'+q[3]+'Z';
+    fill.setAttribute('d',plot);
+    // the line runs down the margin beside the text, never through it, and closes around the button
+    var h1=document.querySelector('h1').getBoundingClientRect();
+    var pad=7, L=b.left-sc.left-pad, R=b.right-sc.left+pad, T=b.top-sc.top-pad, B=b.bottom-sc.top+pad, r=(B-T)/2, my=(T+B)/2;
+    var xg=Math.min(sc.width-6, Math.max(R+16, h1.right-sc.left+26));
+    var sx=(q[1][0]+q[2][0])/2, sy=(q[1][1]+q[2][1])/2, turn=Math.min(140,(my-sy)*.35);
+    var d='M'+q[0]+'L'+q[1]+'L'+q[2]+'L'+q[3]+'L'+q[0]+
+      'M'+sx+','+sy+'C'+(sx+(xg-sx)*.6)+','+sy+' '+xg+','+(sy+turn*.4)+' '+xg+','+(sy+turn)+
+      'V'+(my-r*.6)+'Q'+xg+','+my+' '+R+','+my+
+      'A'+r+','+r+' 0 0 0 '+(R-r)+','+T+'H'+(L+r)+'A'+r+','+r+' 0 0 0 '+(L+r)+','+B+'H'+(R-r)+'A'+r+','+r+' 0 0 0 '+R+','+my;
+    path.setAttribute('d',d);
+    path.setAttribute('stroke-width',Math.max(1.6,sc.width/800));
+    total=path.getTotalLength();
+    plotLen=2*(Math.hypot(q[1][0]-q[0][0],q[1][1]-q[0][1])+Math.hypot(q[2][0]-q[1][0],q[2][1]-q[1][1]));
+    path.style.filter='drop-shadow(0 0 5px rgba(216,180,92,.85))';
+  }
+  function ease(t){t=t<0?0:t>1?1:t; return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+  function show(frac){
+    path.style.strokeDasharray=total+' '+total;
+    path.style.strokeDashoffset=total*(1-frac);
+    var pf=Math.min(1,Math.max(0,(frac*total-plotLen)/(total*.12)));
+    fill.setAttribute('fill-opacity',(.75*pf).toFixed(3));
+    if(frac>=.999&&!done){done=true;btn.classList.add('lit');}
+  }
+  function frame(now){
+    if(!t0){t0=now;}
+    var t=(now-t0)/1000, frac=ease((t-.4)/2.6);
+    show(frac);
+    if(frac<1){requestAnimationFrame(frame);}
+  }
+  function start(){
+    layout();
+    if(still){show(1);return;}
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize',function(){layout(); if(done||still){show(1);}});
+  var go=function(){ if(img.complete){start();}else{img.onload=start;} };
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(go);}else{go();}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/LP-rakafot", "destination": "/LP-rakafot/index.html" },
+    { "source": "/LP-rakafot/thanks", "destination": "/LP-rakafot/thanks/index.html" }
+  ]
+}
